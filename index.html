@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="Video-Language Understanding, Large Language Models">
+  <meta name="description" content="VideoMind is a multi-modal chain-of-LoRA agent for long video reasoning.">
+
+  <title>VideoMind: A Chain-of-LoRA Agent for Long Video Reasoning</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5C9M7TXSHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-5C9M7TXSHJ');
+  </script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/nunito@5.0.18/index.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/fontawesome.min.css">
+  <link rel="stylesheet" href="vendor/image-zoom.css">
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="assets/icon.png">
+
+  <script async src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/js/all.min.js"></script>
+  <script async src="vendor/image-zoom.js"></script>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h1 class="title publication-title is-bold">
+            <img src="assets/icon.png" alt="logo">
+            <span>VideoMind: A Chain-of-LoRA Agent for Long Video Reasoning</span>
+          </h1>
+          <div class="is-size-5 publication-author">
+            <span class="author-block">
+              <a href="https://yeliu.dev/" target="_blank">Ye Liu</a><sup>1&dagger;</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://qhlin.me/" target="_blank">Kevin Qinghong Lin</a><sup>2&dagger;</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://web.comp.polyu.edu.hk/chencw/" target="_blank">Chang Wen Chen</a><sup>1&#9993;</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://sites.google.com/view/showlab" target="_blank">Mike Zheng Shou</a><sup>2&#9993;</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-institution">
+            <span class="author-block"><sup>1</sup>The Hong Kong Polytechnic University</span>
+            <span class="author-block"><sup>2</sup>Show Lab, National University of Singapore</span>
+          </div>
+
+          <div class="is-size-5 publication-role">
+            <span class="author-block"><sup>&dagger;</sup><i>Equal Contribution</i></span>
+            <span class="author-block"><sup>&#9993;</sup><i>Corresponding Authors</i></span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a class="button is-normal is-rounded is-dark" href="" target="_blank">
+                  <i class="button-icon far fa-paper-plane"></i>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a class="button is-normal is-rounded is-dark" href="https://github.com/yeliudev/VideoMind" target="_blank">
+                  <i class="button-icon fa-brands fa-github"></i>
+                  <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a class="button is-normal is-rounded is-dark" href="https://huggingface.co/datasets/yeliudev/VideoMind-Dataset" target="_blank">
+                  <i class="button-icon fa-regular fa-hourglass-half"></i>
+                  <span>Dataset</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a class="button is-normal is-rounded is-dark" href="" target="_blank">
+                  <i class="button-icon fa-regular fa-envelope-open"></i>
+                  <span>Checkpoints</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>Videos, with their unique temporal dimension, demand precise grounded understanding, where answers are directly linked to visual, interpretable evidence. Despite significant breakthroughs in reasoning capabilities within Large Language Models, multi-modal reasoning - especially for videos - remains unexplored.</p>
+            <p>In this work, we introduce VideoMind, a novel video-language agent designed for temporal-grounded video understanding. VideoMind incorporates two key innovations: (i) We identify essential capabilities for video temporal reasoning and develop a role-based agentic workflow, including a planner for coordinating different roles, a grounder for temporal localization, a verifier to assess temporal interval accuracy, and an answerer for question-answering. (ii) To efficiently integrate these diverse roles, we propose a novel Chain-of-LoRA strategy, enabling seamless role-switching via lightweight LoRA adaptors while avoiding the overhead of multiple models, thus balancing efficiency and flexibility.</p>
+            <p>Extensive experiments on 14 public benchmarks demonstrate that our agent achieves state-of-the-art performance on diverse video understanding tasks, including grounded video question-answering (Grounded VideoQA), video temporal grounding (VTG), and general video question-answering (VideoQA), underscoring its effectiveness in advancing video agent and long-form temporal reasoning.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-half">
+          <h2 class="title">What is VideoMind?</h2>
+          <img src="figures/teaser.jpg" alt="Teaser" data-zoom-image />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title">Model Overview</h2>
+          <img src="figures/method.jpg" alt="Model Overview" data-zoom-image />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title">Role-Specific Designs</h3>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-fifths">
+          <img src="figures/decoder.jpg" alt="Timestamp Decoder" data-zoom-image />
+          <div class="caption">Timestamp Decoder</div>
+        </div>
+        <div class="column is-two-fifths">
+          <img src="figures/planner.jpg" alt="Planner" data-zoom-image />
+          <div class="caption">Planner</div>
+          <img src="figures/verifier.jpg" alt="Verifier" data-zoom-image />
+          <div class="caption">Verifier</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title">Visualization</h2>
+          <img src="figures/vis.jpg" alt="Visualization" data-zoom-image />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title">Citation</h3>
+          <div class="caption">Please kindly cite our paper if you find this project helpful.</div>
+        </div>
+      </div>
+      <div class="columns is-centered">
+        <pre><code>@article{liu2025videomind,<br>  title={VideoMind: A Chain-of-LoRA Agent for Long Video Reasoning},<br>  author={Liu, Ye and Lin, Kevin Qinghong and Chen, Chang Wen and Shou, Mike Zheng},<br>  year={2025}<br>}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="content">
+            <p>This website is modified from <a href="https://nerfies.github.io/" target="_blank">Nerfies's Project Page</a>. Source code is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
