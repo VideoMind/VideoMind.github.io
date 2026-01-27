@@ -35,8 +35,9 @@
         <div class="column is-four-fifths">
           <img class="logo" src="assets/logo.png" alt="logo">
           <h1 class="title publication-title is-bold">
-            <span>VideoMind: A Chain-of-LoRA Agent for Long Video Reasoning</span>
+            <span>VideoMind: A Chain-of-LoRA Agent for Temporal Grounded Video Reasoning</span>
           </h1>
+          <h2 class="publication-venue">ICLR 2026</h2>
           <div class="is-size-5 publication-author">
             <span class="author-block">
               <a href="https://yeliu.dev/" target="_blank">Ye Liu</a><sup>1&dagger;</sup>,
@@ -107,9 +108,9 @@
         <div class="column is-four-fifths">
           <h2 class="title">Abstract</h2>
           <div class="content has-text-justified">
-            <p>Videos, with their unique temporal dimension, demand precise grounded understanding, where answers are directly linked to visual, interpretable evidence. Despite significant breakthroughs in reasoning capabilities within Large Language Models, multi-modal reasoning - especially for videos - remains unexplored.</p>
-            <p>In this work, we introduce VideoMind, a novel video-language agent designed for temporal-grounded video understanding. VideoMind incorporates two key innovations: (i) We identify essential capabilities for video temporal reasoning and develop a role-based agentic workflow, including a planner for coordinating different roles, a grounder for temporal localization, a verifier to assess temporal interval accuracy, and an answerer for question-answering. (ii) To efficiently integrate these diverse roles, we propose a novel Chain-of-LoRA strategy, enabling seamless role-switching via lightweight LoRA adaptors while avoiding the overhead of multiple models, thus balancing efficiency and flexibility.</p>
-            <p>Extensive experiments on 14 public benchmarks, including 3 on grounded video question-answering (Grounded VideoQA), 6 on video temporal grounding (VTG), and 5 on general video question-answering (VideoQA), verify that our agent achieves state-of-the-art performance on diverse video understanding tasks, underscoring its effectiveness in advancing video agent and long-form temporal reasoning.</p>
+            <p>Videos, with their unique temporal dimension, demand precise grounded understanding, where answers are directly linked to visual, interpretable evidence. Despite significant breakthroughs in text-based reasoning with large language models, multi-modal reasoning -- especially for videos -- remains limited.</p>
+            <p>In this work, we fill this gap by introducing VideoMind, a novel video-language agent for temporal-grounded video reasoning. Our method involves two key innovations: (1) We identify four essential capabilities for grounded video reasoning and propose a role-based agentic workflow, comprising a planner to coordinate roles, a grounder for temporal event localization, a verifier to assess event candidates, and an answerer for question answering. (2) To efficiently integrate these roles during inference, we propose a novel Chain-of-LoRA mechanism, where a unified base model with multiple LoRA adapters is leveraged to enable seamless role switching, balancing efficiency and flexibility.</p>
+            <p>Extensive experiments on 14 benchmarks across 3 tasks, including Grounded VideoQA, Video Temporal Grounding, and General VideoQA, demonstrate the effectiveness of the proposed scheme in advancing video agent, test-time scaling, and long-form video reasoning.</p>
           </div>
         </div>
       </div>
